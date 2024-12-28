@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ae</title>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .input-container {
+            width: 45%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .output-container {
+            width: 45%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            resize: none;
+        }
+        .output-text {
+            min-height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="input-container">
+            <h3>Shkruaj tekstin këtu:</h3>
+            <textarea id="inputText" placeholder="Shkruaj tekstin këtu..." oninput="convertText()"></textarea>
+        </div>
+        
+        <div class="output-container">
+            <h3>Teksti i përkthyer:</h3>
+            <div id="outputText" class="output-text"></div>
+        </div>
+    </div>
+
+    <script>
+        // Harta e zëvendësimeve për shkronjat dhe diakritikët
+        const diacriticsMap = {
+            A: "́", // Kombinimi i aksentit akut
+            E: "̄", // Kombinimi i vijës së gjatë
+            Ë: "̈", // Kombinimi i dierezës
+            I: "̇", // Kombinimi i pikës sipër
+            O: "̊", // Kombinimi i unazës sipër
+            U: "̆", // Kombinimi i breves
+            Y: "̌"  // Kombinimi i karonit
+            // U: "̃",
+        };
+
+        // Zëvendësimi i SH me Ƨ dhe RR me Я
+        function replaceSHandRR(word) {
+            return word.replace(/Sh|SH|sh|sH/g, "Ƨ")
+                       .replace(/Rr|RR|rR|rr/g, "Я")
+                       .replace(/Ç|ç/g, "Ɔ")
+                       .replace(/ZH|Zh|zh|zH/g, "З")
+                       .replace(/Th|TH|th|tH/g, "θ")
+                       .replace(/Ll|LL|lL|ll/g, "⅃");
+        }
+
+        // Funksioni për ndarjen e rrokjeve
+        function splitIntoSyllables(word) {
+            return word.toUpperCase().match(/[BCDFGHJKLMNPQRSTVWXZƧЯ⅃ÇƆθЗ]*[AEËIOUY]?/g).filter(Boolean);
+        }
+
+        // Funksioni për kthimin e shkronjave në alfabetin Evropian
+        function convertToEuropeanAlphabet(word) {
+            // Zëvendësimi i SH dhe RR në fjalë
+            word = replaceSHandRR(word);
+            const syllables = splitIntoSyllables(word);
+            return syllables.map(syllable => {
+                const consonant = syllable.replace(/[AEËIOUY]/g, ""); // Shkronjat bashkëtingëllore
+                const vowel = syllable.replace(/[^AEËIOUY]/g, ""); // Zanoret
+                const diacritic = diacriticsMap[vowel] || ""; // Diakritiku për zanoren
+                return consonant + diacritic; // Kombinimi i shkronjës dhe diakritikut
+            }).join("");
+        }
+
+        // Funksioni për trajtimin e një fjali me shumë fjalë dhe shenja pikësimi
+        function convertSentenceToEuropeanAlphabet(sentence) {
+            return sentence
+                .split(/(\s+|[,.!?;:()"'’-])/g) // Ndaj sipas fjalëve dhe shenjave të pikësimit
+                .map(part => {
+                    if (/^[A-Za-zËëÇç]+$/.test(part)) {
+                        // Nëse është fjalë, ktheje në alfabetin Evropian
+                        return convertToEuropeanAlphabet(part);
+                    }
+                    // Nëse është hapësirë ose shenjë pikësimi, ruaje siç është
+                    return part;
+                })
+                .join(""); // Bashko të gjitha pjesët
+        }
+
+        // Funksioni për përditësimin e tekstit të përkthyer
+        function convertText() {
+            const inputText = document.getElementById("inputText").value;
+            const europeanText = convertSentenceToEuropeanAlphabet(inputText);
+            document.getElementById("outputText").textContent = europeanText;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,37 +1,91 @@
-# European Alphabet Converter
+# European Alphabet Project
 
-This project is a web-based text conversion tool that enables users to convert text written in the Albanian language into the proposed European Alphabet. It supports transformations of digraphs and diacritics to their equivalents in the European Alphabet and allows users to experiment with text conversion for research and educational purposes.
+The European Alphabet is a proposed writing system designed to complement existing alphabets by providing a unified framework for transliteration and multilingual expression. This project aims to serve as a bridge between languages, enabling clearer communication, linguistic research, and cultural exchange.
+
+---
+
+## Purpose
+
+The European Alphabet is not intended to replace current alphabets but to act as an additional tool for transliteration and enhanced multilingual understanding. Its primary goals include:
+
+- Simplifying transliteration across languages.
+- Providing a standardized system for expressing sounds unique to specific languages.
+- Supporting linguistic diversity while fostering unity through a common supplementary alphabet.
+
+The alphabet incorporates symbols inspired by existing scripts (e.g., Latin, Cyrillic, and Greek) and introduces unique diacritics and characters to represent sounds that are often difficult to transliterate.
 
 ---
 
 ## Features
 
-- **Real-Time Conversion:** Converts Albanian text to the European Alphabet instantly as you type.
-- **Custom Transformations:** Supports specific rules for digraphs such as:
-  - `Rr`, `RR`, `rr`, `rR` to `Я`
-  - `Sh`, `sh`, `SH`, `sH` to `Ƨ`
-  - `Ll`, `LL`, `ll`, `lL` to diacritic-based forms: `⅃́`, `⅃̄`, `⅃̈`, `⅃̇`, `⅃̊`, `⅃̃`, `⅃̌`
-- **Simple and Intuitive Interface:** User-friendly design with a text input area and real-time output display.
-- **Extensible Framework:** Easily adaptable to include additional languages and transformation rules.
+### 1. **Support for Multilingual Transcription**
+The European Alphabet allows seamless conversion from languages such as Albanian, English, French, Japanese, Croatian, and Arabic. It provides unique representations for complex phonemes and digraphs.
 
----
+### 2. **Special Characters and Transformations**
+The alphabet includes specialized transformations, such as:
 
-## How It Works
+- **Digraphs:**
+  - `Rr`, `RR`, `rr`, `rR` → `Я`
+  - `Sh`, `sh`, `SH`, `sH` → `Ƨ`
+  - `Th`, `th`, `TH`, `tH` → `З`
 
-1. **Input Text:** Users type or paste Albanian text into a designated input area.
-2. **Transformation Rules:** The tool processes the text using predefined mappings and rules for diacritic and digraph replacements.
-3. **Output Result:** The converted text is displayed in the European Alphabet format on the right side of the interface.
+- **Diacritics for Vowels:**
+  - `A` → `Á` (Á)
+  - `E` → `Ē` (Ē)
+  - `Ë` → `Ë̈`
+  - `U` → `Ŭ` (Ŭ)
+  - `Y` → `Ŷ` (Y̌)
 
----
+- **Other Symbols:**
+  - Flipped `C` (ↄ) for `Ç`, `CH`, or similar sounds.
 
-## Usage Instructions
+### 3. **Adaptability**
+This system is adaptable to various scripts and languages. Examples include:
 
-1. Open the `index.html` file in any modern web browser.
-2. Start typing Albanian text in the input area.
-3. View the converted text in the output area.
+- **Japanese:**
+  - Hiragana `し` (shi) → `Ƨ`
+  - Katakana `チ` (chi) → `Č`
+
+- **Arabic:**
+  - `خ` (kh) → `X`
+  - `ث` (th) → `З`
+
+- **Croatian:**
+  - `Č` → `Č`
+  - `Đ` → `Ð`
 
 ---
 
 ## Examples
 
-- **Input:**
+### Albanian to European Alphabet
+**Input:** Shqip rrjedhshëm dhe shpejt!  
+**Output:** Ƨ́qip Яjedhshëm dhe Ƨpejt!
+
+### Japanese to European Alphabet
+**Input:** こんにちは (Konnichiwa)  
+**Output:** KoƧƧiƧa
+
+### Arabic to European Alphabet
+**Input:** السلام عليكم (As-salamu alaykum)  
+**Output:** Al-salamu alaykum
+
+### English to European Alphabet
+**Input:** Thoughtful thinkers think thoroughly.  
+**Output:** Зoughtful Зinkers Зink Зoroughly.
+
+---
+
+## How It Works
+
+1. **Input Text:** Type or paste text in the source language.
+2. **Processing Rules:** The tool applies predefined mappings and rules to convert characters to their European Alphabet equivalents.
+3. **Output Text:** The transformed text is displayed in real-time or exported as needed.
+
+---
+
+## Usage Instructions
+
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/driton/europian.git
