@@ -53,19 +53,11 @@ This system is adaptable to various scripts and languages. Examples include:
 
 ### Albanian to European Alphabet
 **Input:** Shqip rrjedhshëm dhe shpejt!  
-**Output:** Ƨ́qip Яjedhshëm dhe Ƨpejt!
+**Output:** ƧQ̇P ЯJ̄DHƧ̈M DH̄ ƧP̄JT!
 
 ### Japanese to European Alphabet
 **Input:** こんにちは (Konnichiwa)  
-**Output:** KoƧƧiƧa
-
-### Arabic to European Alphabet
-**Input:** السلام عليكم (As-salamu alaykum)  
-**Output:** Al-salamu alaykum
-
-### English to European Alphabet
-**Input:** Thoughtful thinkers think thoroughly.  
-**Output:** Зoughtful Зinkers Зink Зoroughly.
+**Output:** K̊ṄƆ̇Ẃ
 
 ---
 
