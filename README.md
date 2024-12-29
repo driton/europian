@@ -25,16 +25,9 @@ The European Alphabet allows seamless conversion from languages such as Albanian
 The alphabet includes specialized transformations, such as:
 
 - **Digraphs:**
-  - `Rr`, `RR`, `rr`, `rR` → `Я`
-  - `Sh`, `sh`, `SH`, `sH` → `Ƨ`
-  - `Th`, `th`, `TH`, `tH` → `З`
-
-- **Diacritics for Vowels:**
-  - `A` → `Á` (Á)
-  - `E` → `Ē` (Ē)
-  - `Ë` → `Ë̈`
-  - `U` → `Ŭ` (Ŭ)
-  - `Y` → `Ŷ` (Y̌)
+  - `Rr` → `Я`
+  - `Sh` → `Ƨ`
+  - `Th` → `З`
 
 - **Other Symbols:**
   - Flipped `C` (ↄ) for `Ç`, `CH`, or similar sounds.
